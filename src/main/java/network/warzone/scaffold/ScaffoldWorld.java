@@ -28,6 +28,14 @@ public class ScaffoldWorld {
         this.configFile = new File(this.folder, "scaffold.yml");
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public File getFolder() {
+        return this.folder;
+    }
+
     public Optional<World> getWorld() {
         return Optional.ofNullable(Bukkit.getWorld(this.worldName));
     }
@@ -66,13 +74,12 @@ public class ScaffoldWorld {
         world.setAutoSave(true);
         world.save();
 
-        world.setGameRule(GameRule.ANNOUNCE_ADVANCEMENTS, false);
-        world.setGameRule(GameRule.COMMAND_BLOCK_OUTPUT, false);
-        world.setGameRule(GameRule.DISABLE_ELYTRA_MOVEMENT_CHECK, true);
-        world.setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
-        world.setGameRule(GameRule.DO_WEATHER_CYCLE, false);
-        world.setGameRule(GameRule.LOG_ADMIN_COMMANDS, false);
-        world.setGameRule(GameRule.RANDOM_TICK_SPEED, 0);
+        world.setGameRuleValue("ANNOUNCE_ADVANCEMENTS", "false");
+        world.setGameRuleValue("COMMAND_BLOCK_OUTPUT", "false");
+        world.setGameRuleValue("DO_DAYLIGHT_CYCLE", "false");
+        world.setGameRuleValue("DO_WEATHER_CYCLE", "false");
+        world.setGameRuleValue("LOG_ADMIN_COMMANDS", "false");
+        world.setGameRuleValue("RANDOM_TICK_SPEED", "0");
 
         Vector min = new Vector(-1, 0, -1);
         Vector max = new Vector(1, 0, 1);

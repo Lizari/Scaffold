@@ -158,7 +158,6 @@ public class ScaffoldCommands {
         if (sender instanceof Player) {
             Player player = (Player) sender;
             player.teleport(wrapper.getWorld().get().getSpawnLocation());
-            player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
             player.setGameMode(GameMode.CREATIVE);
             player.setAllowFlight(true);
             player.setFlying(true);

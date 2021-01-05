@@ -17,7 +17,7 @@ public class NullChunkGenerator extends ChunkGenerator {
         ChunkData data = createChunkData(world);
         for (int i = 0; i < 16; i++) {
             for (int j = 0; j < 16; j++) {
-                biomeGrid.setBiome(i, j, Biome.THE_VOID);
+                biomeGrid.setBiome(i, j, Biome.SKY);
             }
         }
         return data;
