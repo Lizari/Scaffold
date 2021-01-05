@@ -75,11 +75,10 @@ public class ScaffoldWorld {
         world.save();
 
         world.setGameRuleValue("ANNOUNCE_ADVANCEMENTS", "false");
-        world.setGameRuleValue("COMMAND_BLOCK_OUTPUT", "false");
-        world.setGameRuleValue("DO_DAYLIGHT_CYCLE", "false");
-        world.setGameRuleValue("DO_WEATHER_CYCLE", "false");
-        world.setGameRuleValue("LOG_ADMIN_COMMANDS", "false");
-        world.setGameRuleValue("RANDOM_TICK_SPEED", "0");
+        world.setGameRuleValue("commandBlockOutput", "false");
+        world.setGameRuleValue("doDaylightCycle", "false");
+        world.setGameRuleValue("logAdminCommands", "false");
+        world.setGameRuleValue("randomTickSpeed", "0");
 
         Vector min = new Vector(-1, 0, -1);
         Vector max = new Vector(1, 0, 1);

@@ -1,12 +1,13 @@
 package network.warzone.scaffold.commands;
 
 import com.google.common.base.Joiner;
-import com.mashape.unirest.http.HttpResponse;
-import com.mashape.unirest.http.Unirest;
 import com.sk89q.minecraft.util.commands.Command;
 import com.sk89q.minecraft.util.commands.CommandContext;
 import com.sk89q.minecraft.util.commands.CommandNumberFormatException;
 import com.sk89q.minecraft.util.commands.CommandPermissions;
+import kong.unirest.HttpResponse;
+import kong.unirest.RawResponse;
+import kong.unirest.Unirest;
 import network.warzone.scaffold.Scaffold;
 import network.warzone.scaffold.ScaffoldWorld;
 import network.warzone.scaffold.Zip;
@@ -269,7 +270,7 @@ public class ScaffoldCommands {
 
         Scaffold.get().async(() -> {
             try {
-                HttpResponse<InputStream> response = Unirest.get(link).header("content-type", "*/*").asBinary();
+                HttpResponse<InputStream> response = Unirest.get(link).header("content-type", "*/*").asObject(RawResponse::getContent);
                 File temp = new File(UUID.randomUUID().toString() + ".zip");
                 Files.copy(response.getBody(), temp.toPath());
                 Zip.extract(temp, wrapper.getFolder());
