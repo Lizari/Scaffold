@@ -74,9 +74,10 @@ public class ScaffoldWorld {
         world.setAutoSave(true);
         world.save();
 
-        world.setGameRuleValue("ANNOUNCE_ADVANCEMENTS", "false");
+        world.setGameRuleValue("announceAdvancements", "false");
         world.setGameRuleValue("commandBlockOutput", "false");
         world.setGameRuleValue("doDaylightCycle", "false");
+        world.setGameRuleValue("doWeatherCycle", "false");
         world.setGameRuleValue("logAdminCommands", "false");
         world.setGameRuleValue("randomTickSpeed", "0");
 
