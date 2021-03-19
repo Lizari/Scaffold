@@ -9,13 +9,14 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.command.TabCompleter;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public final class Scaffold extends JavaPlugin implements TabCompleter {
+public final class Scaffold extends JavaPlugin implements TabCompleter, Listener {
 
     private static Scaffold instance;
     public static Scaffold get() {
@@ -23,7 +24,7 @@ public final class Scaffold extends JavaPlugin implements TabCompleter {
     }
 
     private CommandsManager<CommandSender> commands;
-    private Map<ScaffoldWorld, Long> locked = new HashMap<>();
+    private final Map<ScaffoldWorld, Long> locked = new HashMap<>();
 
     @Override
     public void onEnable() {
